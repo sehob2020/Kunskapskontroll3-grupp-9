@@ -24,4 +24,3 @@ let bild = document.querySelector('.bildsak')
 
     console.log(bla);
 }
-    )
