@@ -1,6 +1,10 @@
 let bild = document.querySelector('.bildsak')
 let bild1 = document.querySelector('.bildsak1')
-let button = document.querySelector('.card')
+// let button = document.querySelector('.card')
+let bilden
+let cardholder = document.querySelector('.card-container')
+let kort
+let cardcard
 // bild.setAttribute('src', 'https://live.staticflickr.com/65535/49730008467_ca7266df26_q.jpg')
 
 // https://live.staticflickr.com/7372/12502775644_284b3183ca0a2ee9_w.jpg
@@ -25,14 +29,27 @@ let button = document.querySelector('.card')
     
     .then(data => {
         //let baksida1 = data['photos']['photo'][0]['url_q'];
+        let baksida = [];
+        for(let i=0; i<12; i++){
+           baksida[i] = data['photos']['photo'][i]['url_q'];
+        }
+
 
         for(let i=0; i<12; i++){
-            let baksida1 = data['photos']['photo'][i]['url_q'];
+        cardholder[i] = document.createElement('card-holder'+[i])
+        cardcard[i] = kort
+        kort = document.createElement('img');
+        kort.appendChild(cardholder[i])
+        // kort = baksida[i];
+        kort.setAttribute('scr', baksida[i])
+        // kort.innerHTML = baksida[i];
         }
+        // console.log(kort)
+        console.log(kort)
 
-        for(let j=0; j<12; j++){
+/*         for(let j=0; j<12; j++){
             let baksida1 = data['photos']['photo'][j]['url_q'];
-        }
+        } */
        /*  let baksida2 = data['photos']['photo'][1]['url_q'];
         let baksida3 = data['photos']['photo'][2]['url_q'];
         let baksida4 = data['photos']['photo'][3]['url_q'];
@@ -46,10 +63,10 @@ let button = document.querySelector('.card')
         let baksida12 = data['photos']['photo'][11]['url_q']; */
     
         // bild.innerHTML = 'src, '+bla;
-        bild.setAttribute("src", baksida1);
-        bild1.setAttribute("src", baksida2);
-
-        console.log(baksida1);
+        // bild.setAttribute("src", baksida1);
+        // bild1.setAttribute("src", baksida2);
+// 
+        // console.log(baksida1);
     }
         )
 // })
@@ -73,4 +90,4 @@ function Card(value, ost) {
 
   }
   
-  var card1 = new Card(,);
+//   var card1 = new Card(,);
