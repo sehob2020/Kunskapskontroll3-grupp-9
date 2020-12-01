@@ -11,8 +11,6 @@ fetch(url).then(
     }
 ).then(
     function(data){
-/*         console.log(data.photos.photo[1]);
-        getImageUrl(data.photos.photo[1]); */
         for(let i=0; i<12; i++){
             console.log(data.photos.photo[i]);
             getImageUrl(data.photos.photo[i]);
@@ -33,14 +31,14 @@ function getImageUrl(photoObject){
 
 //för att visa bilden
 function displayImg(url){
-    let kort = document.querySelector('.card-container')
-    for(let i=0; i<2; i++){
-    let div = document.createElement('div')
+    let kort = document.querySelector('.card-container');
+
+    for(let i=0; i<25; i++){
+    let div = document.createElement('div');
     div.setAttribute('class', 'card '+'card'+[i])
-    kort.appendChild(div)
+    kort.appendChild(div);
     let img = document.createElement('img');
     img.src = url;
     div.appendChild(img);
     }
-
 }
