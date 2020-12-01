@@ -34,16 +34,13 @@ function getImageUrl(photoObject){
 //för att visa bilden
 function displayImg(url){
     let kort = document.querySelector('.card-container')
-    for(let i=0; i<25; i++){
+    for(let i=0; i<2; i++){
     let div = document.createElement('div')
     div.setAttribute('class', 'card '+'card'+[i])
     kort.appendChild(div)
-    }
-/*     let img = document.createElement('img');
+    let img = document.createElement('img');
     img.src = url;
-    // img.setAttribute('src', url);
-
-    // let body = document.querySelector('body');
-    kort.appendChild(img); */
+    div.appendChild(img);
+    }
 
 }

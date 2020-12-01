@@ -54,10 +54,10 @@ body{
 }
 
 .card{
-    width: 100px;
+/*     width: 100px;
     height: 150px;
     border: solid 1px black;
-    background-color: rgb(212, 212, 212);
+    background-color: rgb(212, 212, 212); */
 }
 
 .turned{
