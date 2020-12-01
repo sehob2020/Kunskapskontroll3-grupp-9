@@ -60,6 +60,11 @@ body{
     background-color: rgb(212, 212, 212);
 }
 
+.turned{
+    background-image: url(/Card.png);
+    background-size: cover;
+}
+
 .new-button{
     cursor: pointer;
     font-size: 40px;

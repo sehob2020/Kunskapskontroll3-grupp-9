@@ -24,8 +24,16 @@ let button = document.querySelector('.card')
     .then(response => response.json())
     
     .then(data => {
-        let baksida1 = data['photos']['photo'][0]['url_q'];
-        let baksida2 = data['photos']['photo'][1]['url_q'];
+        //let baksida1 = data['photos']['photo'][0]['url_q'];
+
+        for(let i=0; i<12; i++){
+            let baksida1 = data['photos']['photo'][i]['url_q'];
+        }
+
+        for(let j=0; j<12; j++){
+            let baksida1 = data['photos']['photo'][j]['url_q'];
+        }
+       /*  let baksida2 = data['photos']['photo'][1]['url_q'];
         let baksida3 = data['photos']['photo'][2]['url_q'];
         let baksida4 = data['photos']['photo'][3]['url_q'];
         let baksida5 = data['photos']['photo'][4]['url_q'];
@@ -35,12 +43,34 @@ let button = document.querySelector('.card')
         let baksida9 = data['photos']['photo'][8]['url_q'];
         let baksida10 = data['photos']['photo'][9]['url_q'];
         let baksida11 = data['photos']['photo'][10]['url_q'];
-        let baksida12 = data['photos']['photo'][11]['url_q'];
+        let baksida12 = data['photos']['photo'][11]['url_q']; */
     
         // bild.innerHTML = 'src, '+bla;
         bild.setAttribute("src", baksida1);
         bild1.setAttribute("src", baksida2);
+
         console.log(baksida1);
     }
         )
 // })
+
+let card = {
+    lol: 'öpö',
+
+    turn: function(){
+        card.classList.remove 
+    }
+}
+
+let score = document.querySelector('.score-title')
+score.innerText = 'Score: ${}';
+
+
+
+function Card(value, ost) {
+    this.cardValue = value;
+    this.ost = ost;
+
+  }
+  
+  var card1 = new Card(,);
