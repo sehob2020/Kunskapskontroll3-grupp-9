@@ -41,6 +41,7 @@ function displayImg(url){
     let img = document.createElement('img');
     img.src = url;
     div.appendChild(img);
+    
     }
 
 }
