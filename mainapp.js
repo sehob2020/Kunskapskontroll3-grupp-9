@@ -7,7 +7,6 @@ let kort = document.querySelector('.card-container')
 let cardsChosen = []
 let cardsChosenId = []
 let bilder = [];
-
 // const url = `https://www.flickr.com/services/rest/?api_key=${KEY}&gallery_id=${galleryId}&format=json&nojsoncallback=1`;
 const url = `https://www.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=${KEY}&gallery_id=${galleryId}&format=json&nojsoncallback=1`;
 
@@ -51,6 +50,7 @@ function displayImg(url){
     let kort = document.querySelector('.card-container');
     for(let i=0; i<2; i++){
     let div = document.createElement('div');
+    div.addEventListener('click', turnCard)
     div.setAttribute('class', 'card ' + 'card-id' + cardCount);
     // kort.appendChild(div);
     var children = kort.childNodes;
@@ -58,7 +58,7 @@ function displayImg(url){
     kort.insertBefore(div, randChild)
     let img = document.createElement('img');
     img.setAttribute('class', 'ost')
-    img.addEventListener('click', turnCard)
+    // div.addEventListener('click', turnCard)
     img.setAttribute('src', '/baksida.png')
     div.appendChild(img);
     img = document.createElement('img');
@@ -86,11 +86,13 @@ function scoreCount(){
 }
 
 function turnCard(){
-    let img = document.querySelectorAll('img')
+    let img = document.querySelector('img')
     img.style.display = 'none'
+    // document.querySelector('img').style.display='block';
     // bilder.setAttribute('src', '/Card.png')
     // console.log(bilder)
-    console.log(bilder)
+    // let id = [document.querySelectorAll('.card-id')];
+    // console.log(id)
 }
 
 /* function checkForMatch() {
