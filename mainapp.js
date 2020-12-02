@@ -86,7 +86,7 @@ function scoreCount(){
 }
 
 function turnCard(){
-    let img = document.querySelectorAll('img')
+    let img = document.querySelector( '.ost')
     img.style.display = 'none'
     // bilder.setAttribute('src', '/Card.png')
     // console.log(bilder)
