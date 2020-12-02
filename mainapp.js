@@ -51,13 +51,13 @@ function displayImg(url){
 }
 
 function random(){
-    bilder = Math.ceil(Math.random()*24);
-    return bilder;
+    kort = Math.ceil(Math.random()*24);
+    return kort;
 } 
 
 random();
 console.log(bilder);
-
+console.log(kort)
     
     
 
