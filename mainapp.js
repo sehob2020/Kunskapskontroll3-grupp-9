@@ -57,7 +57,7 @@ function displayImg(url){
     var randChild = children[shuffleBoard(children.length)];
     kort.insertBefore(div, randChild)
     let img = document.createElement('img');
-    img.setAttribute('src', '/blank.png')
+    img.setAttribute('src', '/kort.png')
     // img.src = url;
     div.appendChild(img);
     bilder.push(img);
@@ -72,7 +72,7 @@ function newGame(){
 }
 
 function scoreCount(){
-    pointsDisplay.textContent = 'Congratulations! You found them all!'
+    pointsDisplay.textContent = 'Congratulations! You found them all!';
     // alert('hej')
 
 }
