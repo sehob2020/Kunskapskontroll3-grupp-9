@@ -5,6 +5,8 @@ let cardCount = 0;
 // const url = `https://www.flickr.com/services/rest/?api_key=${KEY}&gallery_id=${galleryId}&format=json&nojsoncallback=1`;
 const url = `https://www.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=${KEY}&gallery_id=${galleryId}&format=json&nojsoncallback=1`;
 
+
+
 fetch(url).then(
     function(response){
         console.log(response);
@@ -30,17 +32,26 @@ function getImageUrl(photoObject){
     console.log(imgUrl);
     displayImg(imgUrl);
 }
-
+  
 //för att visa bilden
 function displayImg(url){
     let kort = document.querySelector('.card-container');
     for(let i=0; i<2; i++){
     let div = document.createElement('div');
-    div.setAttribute('class', 'card' + 'card' + cardCount)
+    div.setAttribute('class', 'card' + 'card' + cardCount) 
     kort.appendChild(div);
     let img = document.createElement('img');
     img.src = url;
     div.appendChild(img);
     
+     console.log('div');
+    
+    
     }
 }
+    
+    
+    
+
+ 
+
