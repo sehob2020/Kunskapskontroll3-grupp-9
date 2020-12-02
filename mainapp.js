@@ -57,7 +57,7 @@ function displayImg(url){
     var randChild = children[shuffleBoard(children.length)];
     kort.insertBefore(div, randChild)
     let img = document.createElement('img');
-    img.setAttribute('src', '/kort.png')
+    img.setAttribute('src', '/baksida.png')
     // img.src = url;
     div.appendChild(img);
     bilder.push(img);
