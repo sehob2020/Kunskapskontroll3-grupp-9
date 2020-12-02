@@ -57,7 +57,7 @@ function displayImg(url){
     var randChild = children[shuffleBoard(children.length)];
     kort.insertBefore(div, randChild)
     let img = document.createElement('img');
-    img.setAttribute('src', '/baksida.png')
+    img.setAttribute('src', '/kort.png')
     // img.src = url;
     div.appendChild(img);
     bilder.push(img);
@@ -74,12 +74,13 @@ function newGame(){
 function scoreCount(){
     pointsDisplay.textContent = 'Congratulations! You found them all!';
     // alert('hej')
+    console.log(cardNr);
 
 }
 
 function turnCard(){
-    bilder.setAttribute('src', '/Card.png')
-    // console.log(bilder)
+    let cardNr = this.getAttribute('card');
+    console.log(cardNr);
 }
 
 /* function checkForMatch() {
