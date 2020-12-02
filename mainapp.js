@@ -57,11 +57,11 @@ function displayImg(url){
     var randChild = children[shuffleBoard(children.length)];
     kort.insertBefore(div, randChild)
     let img = document.createElement('img');
-    img.setAttribute('src', '/blank.png')
+    img.setAttribute('src', '/kort.png')
     // img.src = url;
     div.appendChild(img);
     bilder.push(img);
-    img.addEventListener('click', scoreCount)
+    img.addEventListener('click', turnCard)
     console.log(randChild)
     }
 }
@@ -72,14 +72,15 @@ function newGame(){
 }
 
 function scoreCount(){
-    pointsDisplay.textContent = 'Congratulations! You found them all!'
+    pointsDisplay.textContent = 'Congratulations! You found them all!';
     // alert('hej')
-    console.log(cardNr)
+    console.log(cardNr);
+
 }
 
 function turnCard(){
-    let cardNr = this.getAttribute('card')
-    console.log(cardNr)
+    let cardNr = this.getAttribute('card');
+    console.log(cardNr);
 }
 
 /* function checkForMatch() {
