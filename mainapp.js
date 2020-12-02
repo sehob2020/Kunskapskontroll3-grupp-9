@@ -5,6 +5,8 @@ let cardCount = 0;
 // const url = `https://www.flickr.com/services/rest/?api_key=${KEY}&gallery_id=${galleryId}&format=json&nojsoncallback=1`;
 const url = `https://www.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=${KEY}&gallery_id=${galleryId}&format=json&nojsoncallback=1`;
 
+
+
 fetch(url).then(
     function(response){
         console.log(response);
@@ -55,3 +57,9 @@ function random(){
 
 random();
 console.log(bilder);
+
+    
+    
+
+ 
+
