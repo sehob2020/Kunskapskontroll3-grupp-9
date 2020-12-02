@@ -15,8 +15,7 @@ fetch(url).then(
 ).then(
     function(data){
         for(let i=0; i<12; i++){
-            console.log(data.photos.photo[i]);
-            getImageUrl(data.photos.photo[i]);
+           getImageUrl(data.photos.photo[i]);
             cardCount++
         }
     }
@@ -31,6 +30,8 @@ function getImageUrl(photoObject){
 
     console.log(imgUrl);
     displayImg(imgUrl);
+   
+   
 }
 
 let bilder = [];
@@ -44,6 +45,7 @@ function displayImg(url){
     div.setAttribute('class', 'cards ' + 'card' + cardCount);
     kort.appendChild(div);
     let img = document.createElement('img');
+    img.setAttribute('class', 'image');
     img.src = url;
     div.appendChild(img);
     bilder.push(img);
@@ -56,10 +58,14 @@ function random(){
 } 
 
 random();
-console.log(bilder);
+console.log();
 console.log(kort)
-    
-    
 
- 
+let cards = document.querySelector('.image');
+cards.addEventListener('click', function(){
+    cards.style.backgroundColor = 'red';
+
+    console.log('hej');
+})
+    
 
