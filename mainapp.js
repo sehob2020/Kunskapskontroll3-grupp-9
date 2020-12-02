@@ -41,7 +41,7 @@ function displayImg(url){
     let kort = document.querySelector('.card-container');
     for(let i=0; i<2; i++){
     let div = document.createElement('div');
-    div.setAttribute('class', 'card ' + 'card' + cardCount);
+    div.setAttribute('class', 'cards ' + 'card' + cardCount);
     kort.appendChild(div);
     let img = document.createElement('img');
     img.src = url;
