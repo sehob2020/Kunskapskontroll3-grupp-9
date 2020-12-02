@@ -78,7 +78,7 @@ function scoreCount(){
 }
 
 function turnCard(){
-    bilder.setAttribute('src', '/Card.png')
+    // bilder.setAttribute('src', '/Card.png')
     // console.log(bilder)
 }
 
