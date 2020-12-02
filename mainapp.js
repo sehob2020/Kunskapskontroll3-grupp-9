@@ -35,6 +35,7 @@ function getImageUrl(photoObject){
 
 let bilder = [];
 
+
 //för att visa bilden
 function displayImg(url){
     let kort = document.querySelector('.card-container');
@@ -50,10 +51,9 @@ function displayImg(url){
 }
 
 function random(){
-    let kort = document.querySelector('.card-container');
-    kort = Math.ceil(Math.random()*24);
-    return kort;
-}
+    bilder = Math.ceil(Math.random()*24);
+    return bilder;
+} 
 
 random();
 console.log(bilder);
