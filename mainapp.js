@@ -119,7 +119,7 @@ const resetGuesses = () => {
     });
 };
 
-  grid.addEventListener('click', event => {
+grid.addEventListener('click', event => {
 
     const clicked = event.target;
   
@@ -154,4 +154,4 @@ const resetGuesses = () => {
       previousTarget = clicked;
     }
   
-  });
+});
