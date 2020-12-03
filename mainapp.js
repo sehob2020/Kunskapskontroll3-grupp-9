@@ -68,7 +68,7 @@ function displayImg(url){
     img1.setAttribute('src', '/baksida.png')
     div.appendChild(img1);
     let img = document.createElement('img');
-    img.setAttribute('class', 'back' + cardCount)
+    img.setAttribute('class', 'back' + cardCount);
     img.dataset.id = cardCount;
     img.src = url;
     div.appendChild(img);
@@ -77,7 +77,6 @@ function displayImg(url){
     // img.addEventListener('click', turnCard)
     console.log(randChild);
     console.log(img.id)
-    
     }
 }
 
