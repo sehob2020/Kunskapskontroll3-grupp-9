@@ -59,7 +59,7 @@ function displayImg(url){
     kort.insertBefore(div, randChild)
     let img = document.createElement('img');
     img.setAttribute('class', 'ost')
-    div.addEventListener('click', function(turnCard) { console.log(this);})
+    div.addEventListener('click', function(event) { turnCard(event.target);})
     img.setAttribute('src', '/baksida.png')
     div.appendChild(img);
     img = document.createElement('img');
@@ -70,13 +70,13 @@ function displayImg(url){
     img.style.display = 'none'
     bilder.push(img);
     // img.addEventListener('click', turnCard)
-    console.log(randChild)
+    console.log(randChild);
     }
 }
 
 button.addEventListener('click', newGame)
 function newGame(){
-
+    location.reload();
 }
 
 function scoreCount(){
@@ -86,10 +86,11 @@ function scoreCount(){
 
 }
 
-function turnCard(){
-    let img = document.querySelector('.ost')
-    img.style.display = 'none'
-    console.log()
+function turnCard(element){
+    //let img = document.querySelector('.baksida');
+    element.style.display = 'none';
+    let ost = document.querySelector('.ost');
+    
     // bilder.setAttribute('src', '/Card.png')
     // console.log(bilder)
     // console.log(bilder)
