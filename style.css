@@ -27,7 +27,7 @@ box-sizing: border-box;
     border-bottom: none;
 }
 
-.difficult-container{
+/* .difficult-container{
     display: flex;
     align-items: flex-end;
     flex-direction: row;
@@ -35,7 +35,7 @@ box-sizing: border-box;
     justify-self: center;
     width: 300px;
     padding-right: 5px;
-}
+} */
 
 body{
     background-color: grey;
@@ -44,26 +44,26 @@ body{
 }
 
 .card-container{
-    display: grid;
-    grid-template-columns: repeat(6, auto);
-    grid-template-rows: auto;
-    justify-items: center;
+    /* display: grid; */
+    /* grid-template-columns: repeat(6, auto); */
+    /* grid-template-rows: auto; */
+    /* justify-items: center; */
     border: solid 2px black;
-    padding: 10px 0; 
-    grid-row-gap: 10px;
+    /* padding: 10px 0; */
+    /* grid-row-gap: 10px; */
 }
 
-.card{
+/* .card{ */
 /*     width: 100px;
     height: 150px;
     border: solid 1px black;
     background-color: rgb(212, 212, 212); */
-}
+/* } */
 
-.turned{
+/* .turned{
     background-image: url(/Card.png);
     background-size: cover;
-}
+} */
 
 .new-button{
     cursor: pointer;
@@ -83,11 +83,16 @@ body{
 /* --------- */
 
 .grid {
-    max-width: 960px;
+    display: grid;
+    grid-template-columns: repeat(6, auto);
     margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    grid-template-rows: auto;
+    justify-items: center;
+    padding: 10px 0;
+    grid-row-gap: 10px;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* justify-content: space-evenly; */
   }
   
   .card {
@@ -112,7 +117,7 @@ body{
   
   .front {
     z-index: 2;
-    background: #FAB942 url('../img/question.gif') no-repeat center center / contain;
+    background: #FAB942 url('/baksida.png') no-repeat center center / contain;
   }
   
   .back {
