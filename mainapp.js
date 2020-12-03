@@ -13,6 +13,7 @@ const url = `https://www.flickr.com/services/rest/?method=flickr.galleries.getPh
 
 
 
+
 fetch(url).then(
     function(response){
         console.log(response);
@@ -58,7 +59,7 @@ function displayImg(url){
     kort.insertBefore(div, randChild)
     let img = document.createElement('img');
     img.setAttribute('class', 'ost')
-    img.addEventListener('click', turnCard)
+    div.addEventListener('click', function(turnCard) { console.log(this);})
     img.setAttribute('src', '/baksida.png')
     div.appendChild(img);
     img = document.createElement('img');
@@ -88,37 +89,8 @@ function scoreCount(){
 function turnCard(){
     let img = document.querySelector('.ost')
     img.style.display = 'none'
+    console.log()
     // bilder.setAttribute('src', '/Card.png')
     // console.log(bilder)
-    console.log(bilder)
+    // console.log(bilder)
 }
-
-/* function checkForMatch() {
-    var cards = document.querySelectorAll('img')
-    const optionOneId = cardsChosenId[0]
-    const optionTwoId = cardsChosenId[1]
-    
-    if(optionOneId == optionTwoId) {
-      cards[optionOneId].setAttribute('src', 'images/blank.png')
-      cards[optionTwoId].setAttribute('src', 'images/blank.png')
-      alert('You have clicked the same image!')
-    }
-    else if (cardsChosen[0] === cardsChosen[1]) {
-      alert('You found a match')
-      cards[optionOneId].setAttribute('src', 'images/white.png')
-      cards[optionTwoId].setAttribute('src', 'images/white.png')
-      cards[optionOneId].removeEventListener('click', flipCard)
-      cards[optionTwoId].removeEventListener('click', flipCard)
-      cardsWon.push(cardsChosen)
-    } else {
-      cards[optionOneId].setAttribute('src', 'images/blank.png')
-      cards[optionTwoId].setAttribute('src', 'images/blank.png')
-      alert('Sorry, try again')
-    }
-    cardsChosen = []
-    cardsChosenId = []
-    resultDisplay.textContent = cardsWon.length
-    if  (cardsWon.length === cardArray.length/2) {
-      resultDisplay.textContent = 'Congratulations! You found them all!'
-    }
-  } */
