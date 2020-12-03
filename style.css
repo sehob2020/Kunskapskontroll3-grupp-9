@@ -129,6 +129,10 @@ body{
   }
   
   .selected {
+    /* transform: rotateY(180deg); */
+  }
+
+  .turned {
     transform: rotateY(180deg);
   }
   

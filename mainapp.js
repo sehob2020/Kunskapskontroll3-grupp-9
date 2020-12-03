@@ -118,6 +118,19 @@ const resetGuesses = () => {
     card.classList.remove('selected');
     });
 };
+const resetTurned = () => {
+  firstGuess = '';
+  secondGuess = '';
+  count = 0;
+  previousTarget = null;
+
+  var selected = document.querySelectorAll('.turned');
+  selected.forEach(card => {
+    if(!card.classList.contains('match')){
+      card.classList.remove('turned');
+    }
+  });
+};
 
 grid.addEventListener('click', event => {
 
@@ -138,18 +151,23 @@ grid.addEventListener('click', event => {
         firstGuess = clicked.parentNode.dataset.id;
         console.log(firstGuess);
         clicked.parentNode.classList.add('selected');
+        clicked.parentNode.classList.add('turned');
       } else {
         secondGuess = clicked.parentNode.dataset.id;
         console.log(secondGuess);
         clicked.parentNode.classList.add('selected');
+        clicked.parentNode.classList.add('turned');
       }
   
       if (firstGuess && secondGuess) {
         if (firstGuess === secondGuess) {
             scoreCount();
           setTimeout(match, delay);
+          setTimeout(resetGuesses, delay);
+        }else {
+          setTimeout(resetGuesses, delay);
+          setTimeout(resetTurned, delay);
         }
-        setTimeout(resetGuesses, delay);
       }
       previousTarget = clicked;
     }
