@@ -3,7 +3,12 @@ MEMORY GAME OVER 9000!
 ---------------------------------
 Grupp 9: Simon Brandomé, Sebastian Hoberg, Cuong To
 ---------------------------------
+Ansvarsområde:
+
+---------------------------------
 Beskrivning:
 
-
+Spelet är simpelt och oerhört underhållande. Spelet fungerar på följande sätt. Du trycker på ett kort för att vända på det. Poängen är att
+du ska vända på två kort, är det samma kort så får du en poäng. Är det inte samma kort så vänds korten tillbaka och du får försöka igen.
+Det gäller då att du memorerar var korten ligger någonstans.
 ---------------------------------
