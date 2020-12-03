@@ -128,9 +128,9 @@ body{
     background-position: center center;
   }
   
-  .selected {
-    /* transform: rotateY(180deg); */
-  }
+/*   .selected {
+    transform: rotateY(180deg);
+  } */
 
   .turned {
     transform: rotateY(180deg);
