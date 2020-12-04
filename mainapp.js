@@ -10,7 +10,7 @@ pointsDisplay.textContent = 0;
 let kort = document.querySelector('.card-container')
 let bilder = []; //skapa en array för att pusha upp alla bilder 
 
-// Bas URL för att hämta bilder i json format.
+// Bas URL för att hämta bilder i json format. 
 const url = `https://www.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=${KEY}&gallery_id=${galleryId}&format=json&nojsoncallback=1`;
 
 
