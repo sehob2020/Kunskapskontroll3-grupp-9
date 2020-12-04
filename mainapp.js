@@ -15,6 +15,20 @@ function Card (){
   this.class = 'card';
   this.frontUrl = '/baksida.png';
   this.backUrl = url;
+  this.element = document.createElement('div');
+}
+
+Card.prototype.giveBackground = function(url){
+  let img1 = document.createElement('img');
+  img1.setAttribute('class', 'front')
+  img1.setAttribute('src', '/baksida.png')
+  this.element.appendChild(img1);
+  let img = document.createElement('img');
+  img.setAttribute('class', 'back' + cardCount);
+  img.dataset.id = cardCount;
+  img.src = url;
+  this.element.appendChild(img);
+  bilder.push(img);
 }
 
 fetch(url).then(
@@ -49,23 +63,13 @@ function shuffleBoard(max) {
 function displayImg(url){
   for(let i=0; i<2; i++){
   let div = new Card();
-  div = document.createElement('div');
-  div.classList.add('card');
-  div.dataset.id = cardCount;
+  div.element.classList.add('card');
+  div.element.dataset.id = cardCount;
   var children = grid.childNodes;
   var randChild = children[shuffleBoard(children.length)];
-  grid.insertBefore(div, randChild)
+  grid.insertBefore(div.element, randChild)
   grid.dataset.id = cardCount;
-  let img1 = document.createElement('img');
-  img1.setAttribute('class', 'front')
-  img1.setAttribute('src', '/baksida.png')
-  div.appendChild(img1);
-  let img = document.createElement('img');
-  img.setAttribute('class', 'back' + cardCount);
-  img.dataset.id = cardCount;
-  img.src = url;
-  div.appendChild(img);
-  bilder.push(img);
+  div.giveBackground(url);
   console.log(div)
   }
 }
@@ -86,7 +90,7 @@ let secondGuess = '';
 let count = 0;
 let previousTarget = null;
 let delay = 1200;
-let cards = document.querySelectorAll('.card')
+let cards = document.querySelectorAll('.card');
 let grid = document.createElement('section');
 grid.setAttribute('class', 'grid');
 kort.appendChild(grid);
@@ -126,7 +130,7 @@ const resetTurned = () => {
 
 grid.addEventListener('click', event => {
 
-  const clicked = event.target;
+    const clicked = event.target;
   
     if (
       clicked.nodeName === 'SECTION' ||
