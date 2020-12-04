@@ -149,7 +149,7 @@ grid.addEventListener('click', event => {
   
       if (firstGuess && secondGuess) {
         if (firstGuess === secondGuess) {
-            scoreCount();
+          scoreCount();
           setTimeout(match, delay);
           setTimeout(resetGuesses, delay);
         }else {
