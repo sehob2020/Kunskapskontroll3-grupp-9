@@ -5,11 +5,8 @@ let button = document.querySelector('button')
 let pointsDisplay = document.querySelector('.points')
 pointsDisplay.textContent = 0;
 let kort = document.querySelector('.card-container')
-let cardsChosen = []
-let cardsChosenId = []
 let bilder = [];
 
-// const url = `https://www.flickr.com/services/rest/?api_key=${KEY}&gallery_id=${galleryId}&format=json&nojsoncallback=1`;
 const url = `https://www.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=${KEY}&gallery_id=${galleryId}&format=json&nojsoncallback=1`;
 
 
@@ -23,7 +20,6 @@ fetch(url).then(
 ).then(
     function(data){
         for(let i=0; i<12; i++){
-            console.log(data.photos.photo[i]);
             getImageUrl(data.photos.photo[i]);
             cardCount++
         }
@@ -37,7 +33,6 @@ function getImageUrl(photoObject){
 
     let imgUrl = `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_${size}.jpg`;
 
-    console.log(imgUrl);
     displayImg(imgUrl);
 }
 
@@ -50,21 +45,17 @@ function shuffleBoard(max) {
 
 //för att visa bilden
 function displayImg(url){
-    // let kort = document.querySelector('.card-container');
     for(let i=0; i<2; i++){
     let div = document.createElement('div');
-    // div.setAttribute('class', 'card ' + 'card-id' + cardCount);
     div.classList.add('card');
     div.id = cardCount
     div.dataset.id = cardCount;
-    // kort.appendChild(div);
     var children = grid.childNodes;
     var randChild = children[shuffleBoard(children.length)];
     grid.insertBefore(div, randChild)
     grid.dataset.id = cardCount;
     let img1 = document.createElement('img');
     img1.setAttribute('class', 'front')
-    // div.addEventListener('click', function(event) { turnCard(event.target);})
     img1.setAttribute('src', '/baksida.png')
     div.appendChild(img1);
     let img = document.createElement('img');
@@ -72,19 +63,17 @@ function displayImg(url){
     img.dataset.id = cardCount;
     img.src = url;
     div.appendChild(img);
-    // img.style.display = 'none'
     bilder.push(img);
-    // img.addEventListener('click', turnCard)
-    console.log(randChild);
-    console.log(img.id)
     }
 }
 
+// Knapp som start om spelet
 button.addEventListener('click', newGame)
 function newGame(){
     location.reload();
 }
 
+// Lägger till poäng när man får rätt
 function scoreCount(){
     pointsDisplay.textContent ++
 }
