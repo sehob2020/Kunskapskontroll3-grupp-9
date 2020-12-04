@@ -10,72 +10,75 @@ let bilder = [];
 const url = `https://www.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=${KEY}&gallery_id=${galleryId}&format=json&nojsoncallback=1`;
 
 
-
+function Card (){
+  this.id = cardCount;
+  this.class = 'card';
+  this.frontUrl = '/baksida.png';
+  this.backUrl = url;
+}
 
 fetch(url).then(
-    function(response){
-        console.log(response);
-        return response.json();
-    }
+  function(response){
+    console.log(response);
+    return response.json();
+}
 ).then(
-    function(data){
-        for(let i=0; i<12; i++){
-            getImageUrl(data.photos.photo[i]);
-            cardCount++
-        }
+  function(data){
+    for(let i=0; i<12; i++){
+      getImageUrl(data.photos.photo[i]);
+      cardCount++
     }
+  }
 )
 
 //här ska vi pussla ihop bild urlen
 function getImageUrl(photoObject){
-    let photo = photoObject;
-    let size = 'q';
+  let photo = photoObject;
+  let size = 'q';
 
-    let imgUrl = `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_${size}.jpg`;
+  let imgUrl = `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_${size}.jpg`;
 
-    displayImg(imgUrl);
+  displayImg(imgUrl);
 }
-
-
 
 function shuffleBoard(max) {
-    return Math.floor(Math.random() * Math.floor(max));
+  return Math.floor(Math.random() * Math.floor(max));
 }
-
 
 //för att visa bilden
 function displayImg(url){
-    for(let i=0; i<2; i++){
-    let div = document.createElement('div');
-    div.classList.add('card');
-    div.id = cardCount
-    div.dataset.id = cardCount;
-    var children = grid.childNodes;
-    var randChild = children[shuffleBoard(children.length)];
-    grid.insertBefore(div, randChild)
-    grid.dataset.id = cardCount;
-    let img1 = document.createElement('img');
-    img1.setAttribute('class', 'front')
-    img1.setAttribute('src', '/baksida.png')
-    div.appendChild(img1);
-    let img = document.createElement('img');
-    img.setAttribute('class', 'back' + cardCount);
-    img.dataset.id = cardCount;
-    img.src = url;
-    div.appendChild(img);
-    bilder.push(img);
-    }
+  for(let i=0; i<2; i++){
+  let div = new Card();
+  div = document.createElement('div');
+  div.classList.add('card');
+  div.dataset.id = cardCount;
+  var children = grid.childNodes;
+  var randChild = children[shuffleBoard(children.length)];
+  grid.insertBefore(div, randChild)
+  grid.dataset.id = cardCount;
+  let img1 = document.createElement('img');
+  img1.setAttribute('class', 'front')
+  img1.setAttribute('src', '/baksida.png')
+  div.appendChild(img1);
+  let img = document.createElement('img');
+  img.setAttribute('class', 'back' + cardCount);
+  img.dataset.id = cardCount;
+  img.src = url;
+  div.appendChild(img);
+  bilder.push(img);
+  console.log(div)
+  }
 }
 
 // Knapp som start om spelet
 button.addEventListener('click', newGame)
 function newGame(){
-    location.reload();
+  location.reload();
 }
 
 // Lägger till poäng när man får rätt
 function scoreCount(){
-    pointsDisplay.textContent ++
+  pointsDisplay.textContent ++
 }
 
 let firstGuess = '';
@@ -89,23 +92,24 @@ grid.setAttribute('class', 'grid');
 kort.appendChild(grid);
 
 const match = () => {
-    const selected = document.querySelectorAll('.selected');
-    selected.forEach(card => {
-      card.classList.add('match');
-    });
-  };
-  
-const resetGuesses = () => {
-    firstGuess = '';
-    secondGuess = '';
-    count = 0;
-    previousTarget = null;
-  
-    var selected = document.querySelectorAll('.selected');
-    selected.forEach(card => {
-    card.classList.remove('selected');
-    });
+  const selected = document.querySelectorAll('.selected');
+  selected.forEach(card => {
+    card.classList.add('match');
+  });
 };
+
+const resetGuesses = () => {
+  firstGuess = '';
+  secondGuess = '';
+  count = 0;
+  previousTarget = null;
+  
+  var selected = document.querySelectorAll('.selected');
+  selected.forEach(card => {
+    card.classList.remove('selected');
+  });
+};
+
 const resetTurned = () => {
   firstGuess = '';
   secondGuess = '';
@@ -122,7 +126,7 @@ const resetTurned = () => {
 
 grid.addEventListener('click', event => {
 
-    const clicked = event.target;
+  const clicked = event.target;
   
     if (
       clicked.nodeName === 'SECTION' ||
