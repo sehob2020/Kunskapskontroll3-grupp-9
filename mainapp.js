@@ -42,15 +42,15 @@ fetch(url).then(
     return response.json();
 }
 ).then(
-  function(data){// funktion för att loopa genom bilder och hämta 
-    for(let i=0; i<12; i++){// for loop för att hämta 12 unika bilder.
+  function(data){//Funktion där vi hämtar bilder
+    for(let i=0; i<12; i++){//Loop för att hämta 12 st bilder
       getImageUrl(data.photos.photo[i]);
       cardCount++
     }
   }
 )
 
-//här ska vi pussla ihop bild urlen
+//Lägga ihop url och skicka ut
 function getImageUrl(photoObject){
   let photo = photoObject;
   let size = 'q';
@@ -59,58 +59,57 @@ function getImageUrl(photoObject){
 
   displayImg(imgUrl);
 }
-// funktion för random så kortet inte lägger på samma plats 
+//Funktion för att blanda placeringen på korten
 function shuffleBoard(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-//för att visa bilden 
-// skapa två bilder bak och fram-sidan
+//Funktion för att skapa kort och tilldela dem placering
 function displayImg(url){
-  for(let i=0; i<2; i++){// loop för att skaffa dubbletter av bilderna.
+  for(let i=0; i<2; i++){//Loop som skapar dubletter av bilderna
   let div = new Card();
   div.element.classList.add('card');
   div.element.dataset.id = cardCount;
-  var children = grid.childNodes;// childNodes för grid
-  var randChild = children[shuffleBoard(children.length)];// blanda korten
+  var children = grid.childNodes;
+  var randChild = children[shuffleBoard(children.length)];
   grid.insertBefore(div.element, randChild)
   grid.dataset.id = cardCount;
   div.giveBackground(url);
-  console.log(div)
   }
 }
 
-// Knapp som start om spelet
+//Skapar knapp och ger den funktion för att starta om spelet
 button.addEventListener('click', newGame)
 function newGame(){
   location.reload();
 }
 
-// Lägger till poäng när man får rätt
+//Funktion för att räkna poängen
 function scoreCount(){
   pointsDisplay.textContent ++
 }
 
-// variabler för att hålla koll på de olika gissingar
+//Variabler för olika funktioner
 let firstGuess = '';// första gissning
 let secondGuess = '';// andra gissning
-let count = 0;
+let count = 0; //Antal gissningar
 let previousTarget = null;
 let delay = 1200;
+//Skapar section
 let cards = document.querySelectorAll('.card');
 let grid = document.createElement('section');
 grid.setAttribute('class', 'grid');
 kort.appendChild(grid);
 
 
-// match funktionen om kort är lika så lägger det till classen match
+//Funktion för att lägga till klassen match
 const match = () => {
   const selected = document.querySelectorAll('.selected');
   selected.forEach(card => {
     card.classList.add('match');
   });
 };
-// funcktionen gör så att när man clicka på korten så vänds de tillbaka om inte kort matcha.
+//Funktion för att återställa valda kort. Tar bort gissningar och klassen selected
 const resetGuesses = () => {
   firstGuess = '';
   secondGuess = '';
@@ -123,24 +122,25 @@ const resetGuesses = () => {
   });
 };
 
+//Funktion för att bara vända tillbaka kort som inte har klassen match i sig
 const resetTurned = () => {
   firstGuess = '';
   secondGuess = '';
   count = 0;
   previousTarget = null;
-
   var selected = document.querySelectorAll('.turned');
   selected.forEach(card => {
-    if(!card.classList.contains('match')){// två kort som har match stanna 
-      card.classList.remove('turned');//inte två är lika som vänder kort tillbaka 
+    if(!card.classList.contains('match')){
+      card.classList.remove('turned');
     }
   });
 };
-  //en click event för kort
+
+//Sätter klick funktion på korten
 grid.addEventListener('click', event => {
 
     const clicked = event.target;
-    // om clicka på korten sök den efter selected eller match
+    //Kollar efter klasser på det klickade kort
     if (
       clicked.nodeName === 'SECTION' ||
       clicked === previousTarget ||
@@ -150,30 +150,28 @@ grid.addEventListener('click', event => {
       return;
     }
   
-
-    // om första gissningen och andra gissningen inte matchar går de till turned som kommer vända tillbaka korten , men om de matcha så stannar korten kvar.
-    if (count < 2) {
+    if (count < 2) {//Kollar antal gissningar.
       count++;
-      if (count === 1) {
+      if (count === 1) {//Första gissning lägg till klass selected och turned
         firstGuess = clicked.parentNode.dataset.id;
         console.log(firstGuess);
         clicked.parentNode.classList.add('selected');
         clicked.parentNode.classList.add('turned');
-      } else {
+      } else { //Andra gissning lägg till klass selected och turned
         secondGuess = clicked.parentNode.dataset.id;
         console.log(secondGuess);
         clicked.parentNode.classList.add('selected');
         clicked.parentNode.classList.add('turned');
       }
   
-      if (firstGuess && secondGuess) {
-        if (firstGuess === secondGuess) {
-          scoreCount();
-          setTimeout(match, delay);
-          setTimeout(resetGuesses, delay);
+      if (firstGuess && secondGuess) { //Om man gjort båda gissningarna
+        if (firstGuess === secondGuess) {//Om första gissning är samma som andra gissning
+          scoreCount();//Poäng funktion
+          setTimeout(match, delay);//Match funktion
+          setTimeout(resetGuesses, delay);//Gissnings funktion
         }else {
-          setTimeout(resetGuesses, delay);
-          setTimeout(resetTurned, delay);
+          setTimeout(resetGuesses, delay);//Gissnings funktion
+          setTimeout(resetTurned, delay);//Turned funktion
         }
       }
       previousTarget = clicked;
