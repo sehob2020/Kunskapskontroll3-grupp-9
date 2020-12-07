@@ -13,7 +13,7 @@ let bilder = [];//skapa en array för att pusha upp alla bilder
 // Bas URL för att hämta bilder i json format.
 const url = `https://www.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=${KEY}&gallery_id=${galleryId}&format=json&nojsoncallback=1`;
 
-// prototype mall av kort 
+//Konstruktor
 function Card (){
   this.id = cardCount;
   this.class = 'card';
@@ -22,6 +22,7 @@ function Card (){
   this.element = document.createElement('div');
 }
 
+//Prototype
 Card.prototype.giveBackground = function(url){
   let img1 = document.createElement('img');
   img1.setAttribute('class', 'front')
