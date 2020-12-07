@@ -115,6 +115,7 @@ const match = () => {
     card.classList.add('match');
   });
 };
+
 //Funktion för att återställa valda kort. Tar bort gissningar och klassen selected
 const resetGuesses = () => {
   firstGuess = '';
