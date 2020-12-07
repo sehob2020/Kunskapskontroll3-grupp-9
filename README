@@ -9,7 +9,7 @@ Vi har hjälpts åt med det mesta vi har gjort. Vi har alltid suttit på discord
 
 Simon: JavaScript, Hur spelet ska fungera och skapandet av de olika funktionerna. shufflefunktionen som gör att alla kort placeras random vi varje spel så att inte alla kort alltid ligger på samma plats. Simon har även löst hela biten med konstruktor med prototype och instans-metod där vi skapat vår kort-mall som innehåller konstruktor och instans-metod.
 
-Sebastian: HTML och CSS, JavaScript, Layouten och design för spelet, hur det ska se ut och var knappar och kort ska placeras. Även JavaScript bland annat reset funktionen och array så att vi får in bilderna i en array innan vi randomar ut dem.
+Sebastian: HTML och CSS, JavaScript, Layouten och design för spelet, hur det ska se ut och var knappar och kort ska placeras. Även JavaScript bland annat reset funktionen och array så att vi får in bilderna i en array innan vi randomar ut dem. Errorhantering med catch.
 
 Cuong: JavaScript, Hantering med API och hur vi fetchar URLen och får tillbaka den i JSON-format. Annars generell hjälp och kod i JS där vi vid problem har fått dela ut små uppgifter för att enklare och snabbare kunna lösa våra problem tillsammans.
 ---------------------------------
