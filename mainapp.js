@@ -2,7 +2,6 @@
 
 // här deklarera vi våra variabler och skapa vår URL till API med hjälps av template literals.
 const KEY = 'd47e7c95656f6a1961da9190c903ddb2';
-const KEY = 'd47e7c95656f6a1961da9190c903ddb2';
 let galleryId = '72157717114209588';
 let cardCount = 0;
 let button = document.querySelector('button')
@@ -47,6 +46,12 @@ fetch(url).then(
       getImageUrl(data.photos.photo[i]);
       cardCount++
     }
+  }
+)
+// Errorhantering, detta meddelande kommer att logas vid eventuella fel.
+.catch(
+  function (e) {
+    console.log('Something went wrong!');
   }
 )
 
